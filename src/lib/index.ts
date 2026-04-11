@@ -14,6 +14,7 @@ interface Comment {
 interface Project {
 	// details
 	author: User;
+	id: number;
 	name: string;
 	description: string;
 	image: string;
@@ -69,6 +70,7 @@ export const projects: Project[] = [
 	{
 		author: users[0],
 		name: 'Project 1',
+		id: 1,
 		description: 'This is a description of project 1.',
 		image: 'https://placehold.co/150',
 		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
@@ -80,6 +82,7 @@ export const projects: Project[] = [
 	{
 		author: users[1],
 		name: 'Project 2',
+		id: 2,
 		description: 'This is a description of project 2.',
 		image: 'https://placehold.co/150',
 		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
@@ -91,6 +94,7 @@ export const projects: Project[] = [
 	{
 		author: users[2],
 		name: 'Project 3',
+		id: 3,
 		description: 'This is a description of project 3.',
 		image: 'https://placehold.co/150',
 		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
@@ -102,6 +106,7 @@ export const projects: Project[] = [
 	{
 		author: users[0],
 		name: 'Project 4',
+		id: 4,
 		description: 'This is a description of project 4.',
 		image: 'https://placehold.co/150',
 		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
