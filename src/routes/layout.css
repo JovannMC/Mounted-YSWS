@@ -3,5 +3,6 @@
 @plugin '@tailwindcss/typography';
 
 body {
+    @apply text-white;
 	font-family: 'Open Sans Variable', sans-serif;
 }

@@ -8,17 +8,18 @@
 	import { onMount } from 'svelte';
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+	import RectangleGoggles from '@lucide/svelte/icons/rectangle-goggles';
 	import { onNavigate } from '$app/navigation';
 	import '@fontsource-variable/open-sans/wght.css';
+	import { OverlayScrollbarsComponent } from 'overlayscrollbars-svelte';
+	import 'overlayscrollbars/overlayscrollbars.css';
 
 	interface SidebarItem {
 		label: string;
-		link: SidebarRoute;
+		link: string;
 		side: string;
 		active?: boolean;
 	}
-
-	type SidebarRoute = '/' | '/projects' | '/explore' | '/shop' | '/settings' | '/help';
 
 	interface SidebarSection {
 		title?: string;
@@ -88,7 +89,7 @@
 				<div class="flex h-full flex-col text-white/90">
 					<div class="cent mb-6 flex items-center justify-between gap-3">
 						<h1
-							class="h-full content-center truncate text-xl font-semibold text-white"
+							class="h-full content-center truncate text-xl font-semibold"
 							title="Name that is long and truncated"
 						>
 							Name that is long and truncated
@@ -108,7 +109,7 @@
 						<div class="mb-7">
 							{#if section.title}
 								<div class="mb-3 flex items-center justify-between">
-									<h2 class="text-xl font-semibold text-white">{section.title}</h2>
+									<h2 class="text-xl font-semibold">{section.title}</h2>
 									<ChevronDown class="h-4 w-4 text-white/90" />
 								</div>
 							{/if}
@@ -116,10 +117,10 @@
 							<div class="space-y-1 overflow-y-auto pr-1">
 								{#each section.items as item, itemIndex (`item-${itemIndex}`)}
 									<a
-										href={resolve(item.link)}
+										href={item.link}
 										class={[
 											'flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-sm',
-											item.active ? 'bg-white/18 text-white' : 'hover:bg-white/15'
+											item.active ? 'bg-white/18' : 'hover:bg-white/15'
 										]}
 									>
 										<div class="flex items-center gap-3">
@@ -135,9 +136,9 @@
 				</div>
 			</Sidebar>
 
-			<div class="flex-1 p-6">
+			<div class="flex min-h-0 flex-1 flex-col p-6">
 				<!-- top bar -->
-				<div class="relative mb-6 flex h-full max-h-12 w-full items-center justify-between">
+				<div class="relative flex h-12 w-full shrink-0 items-center justify-between">
 					<div class="flex min-w-12 items-center gap-2">
 						{#if isSubPage}
 							<button class="rounded-full bg-white/10 p-3 hover:bg-white/20">
@@ -147,17 +148,33 @@
 					</div>
 
 					<h2
-						class="pointer-events-none absolute left-1/2 max-w-[60%] -translate-x-1/2 truncate text-center text-3xl font-semibold text-white"
+						class="pointer-events-none absolute left-1/2 max-w-[60%] -translate-x-1/2 truncate text-center text-3xl font-semibold"
 					>
 						{title}
 					</h2>
 
 					<div class="flex min-w-12 items-center justify-end gap-2">
-						<!-- right-side actions, if we need it lol -->
+						<div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-sm text-white/90">
+							<RectangleGoggles class="h-4 w-4" />
+							<span>471</span>
+						</div>
 					</div>
 				</div>
-				<!-- actual content of the page -->
-				{@render children()}
+				<!-- actual content of the page lol -->
+				<div class="mt-6 min-h-0 flex-1">
+					<OverlayScrollbarsComponent
+						class="h-full"
+						options={{
+							scrollbars: {
+								autoHide: 'move',
+								autoHideDelay: 1500
+							}
+						}}
+						defer
+					>
+						{@render children()}
+					</OverlayScrollbarsComponent>
+				</div>
 			</div>
 		</div>
 	</Container>
