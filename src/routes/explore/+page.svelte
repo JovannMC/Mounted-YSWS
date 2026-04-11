@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex h-full w-full items-center justify-center">
-	<h1 class="text-4xl font-bold text-white">Hello Dashboard!</h1>
+	<h1 class="text-4xl font-bold text-white">Hello Explore!</h1>
 </div>
 
 

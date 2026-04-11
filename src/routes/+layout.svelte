@@ -6,13 +6,19 @@
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+	import { onNavigate } from '$app/navigation';
+	import '@fontsource-variable/open-sans/wght.css';
 
 	interface SidebarItem {
 		label: string;
-		link: string;
+		link: SidebarRoute;
 		side: string;
 		active?: boolean;
 	}
+
+	type SidebarRoute = '/' | '/projects' | '/explore' | '/shop' | '/settings' | '/help';
 
 	interface SidebarSection {
 		title?: string;
@@ -37,25 +43,28 @@
 		}
 	]);
 
-	let title = $state('Mounted');
+	const allSidebarItems = sections.flatMap((section) => section.items);
 
-	onMount(() => {
-		const currentPath = resolve(window.location.pathname);
-		console.log(`meow! ${currentPath}`);
-		sections.forEach((section) => {
-			console.log(section);
-			section.items.forEach((item) => {
-				console.log(item.link, currentPath);
-				if (item.link === currentPath) {
-					item.active = true;
-					title = item.label;
-					console.log('active', item.label);
-				} else {
-					item.active = false;
-				}
-			});
-		});
-	});
+	let title = $state('Mounted');
+	let isSubPage = $state(false);
+
+	const updatePathState = () => {
+		const pathname = window.location.pathname;
+		const currentPath = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
+		let activeTitle = 'Mounted';
+
+		for (const item of allSidebarItems) {
+			const isActive = item.link === currentPath;
+			item.active = isActive;
+			if (isActive) activeTitle = item.label;
+		}
+
+		title = activeTitle;
+		isSubPage = currentPath.split('/').filter(Boolean).length > 1;
+	};
+
+	onMount(updatePathState);
+	onNavigate(updatePathState);
 
 	let { children } = $props();
 </script>
@@ -79,7 +88,7 @@
 				<div class="flex h-full flex-col text-white/90">
 					<div class="cent mb-6 flex items-center justify-between gap-3">
 						<h1
-							class="h-full content-center overflow-hidden text-xl font-semibold text-ellipsis whitespace-nowrap text-white"
+							class="h-full content-center truncate text-xl font-semibold text-white"
 							title="Name that is long and truncated"
 						>
 							Name that is long and truncated
@@ -100,14 +109,14 @@
 							{#if section.title}
 								<div class="mb-3 flex items-center justify-between">
 									<h2 class="text-xl font-semibold text-white">{section.title}</h2>
-									<span class="text-lg text-white/90">⌄</span>
+									<ChevronDown class="h-4 w-4 text-white/90" />
 								</div>
 							{/if}
 
 							<div class="space-y-1 overflow-y-auto pr-1">
 								{#each section.items as item, itemIndex (`item-${itemIndex}`)}
 									<a
-										href={item.link}
+										href={resolve(item.link)}
 										class={[
 											'flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-sm',
 											item.active ? 'bg-white/18 text-white' : 'hover:bg-white/15'
@@ -127,7 +136,27 @@
 			</Sidebar>
 
 			<div class="flex-1 p-6">
-				<h2 class="text-center text-3xl font-semibold text-white">{title}</h2>
+				<!-- top bar -->
+				<div class="relative mb-6 flex h-full max-h-12 w-full items-center justify-between">
+					<div class="flex min-w-12 items-center gap-2">
+						{#if isSubPage}
+							<button class="rounded-full bg-white/10 p-3 hover:bg-white/20">
+								<ChevronLeft class="text-white/90" />
+							</button>
+						{/if}
+					</div>
+
+					<h2
+						class="pointer-events-none absolute left-1/2 max-w-[60%] -translate-x-1/2 truncate text-center text-3xl font-semibold text-white"
+					>
+						{title}
+					</h2>
+
+					<div class="flex min-w-12 items-center justify-end gap-2">
+						<!-- right-side actions, if we need it lol -->
+					</div>
+				</div>
+				<!-- actual content of the page -->
 				{@render children()}
 			</div>
 		</div>
