@@ -6,6 +6,5 @@
 	<h1 class="text-4xl font-bold">Hello Shop!</h1>
 </div>
 
-
 <style lang="scss">
 </style>

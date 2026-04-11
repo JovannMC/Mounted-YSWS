@@ -111,3 +111,17 @@ export const projects: Project[] = [
 		comments: [comments[0], comments[3]]
 	}
 ];
+
+interface ShopItem {
+	name: string;
+	price: string;
+	image: string;
+}
+
+export const items: ShopItem[] = [
+	{ name: 'VR Stickers', price: '20', image: 'https://placehold.co/150?text=Stickers' },
+	{ name: 'VRChat+ (1 month)', price: '120', image: 'https://placehold.co/150?text=VRChat' },
+	{ name: '$30 VR Asset Grant', price: '529', image: 'https://placehold.co/150?text=VR+Assets' },
+	{ name: '6x SlimeVR Trackers', price: '2599', image: 'https://placehold.co/150?text=SlimeVR' },
+	{ name: 'Quest 3s', price: '3679', image: 'https://placehold.co/150?text=Quest+3s' }
+];

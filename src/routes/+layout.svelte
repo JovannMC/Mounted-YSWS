@@ -29,7 +29,7 @@
 	const sections: SidebarSection[] = $state([
 		{
 			items: [
-				{ label: 'Dashboard', link: '/', side: '67' },
+				{ label: 'Dashboard', link: '/', side: '' },
 				{ label: 'Projects', link: '/projects', side: '' }
 			]
 		},
@@ -136,7 +136,7 @@
 				</div>
 			</Sidebar>
 
-			<div class="flex min-h-0 flex-1 flex-col p-6">
+			<div class="flex min-h-0 flex-1 flex-col p-6 pb-0">
 				<!-- top bar -->
 				<div class="relative flex h-12 w-full shrink-0 items-center justify-between">
 					<div class="flex min-w-12 items-center gap-2">

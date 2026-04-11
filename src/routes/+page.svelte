@@ -1,11 +1,7 @@
 <script lang="ts">
-	const featuredItems = [
-		{ name: 'VR Stickers', price: '20', image: 'https://placehold.co/150?text=Stickers' },
-		{ name: 'VRChat+ (1 month)', price: '120', image: 'https://placehold.co/150?text=VRChat' },
-		{ name: '$30 VR Asset Grant', price: '529', image: 'https://placehold.co/150?text=VR+Assets' },
-		{ name: '6x SlimeVR Trackers', price: '2599', image: 'https://placehold.co/150?text=SlimeVR' },
-		{ name: 'Quest 3s', price: '3679', image: 'https://placehold.co/150?text=Quest+3s' }
-	];
+	import { items } from '$lib';
+
+	const featuredItems = items.sort(() => 0.5 - Math.random()).slice(0, 3);
 </script>
 
 <div class="flex w-full flex-col gap-3">
@@ -28,13 +24,12 @@
 		<div class="flex-1 rounded-lg bg-black/25 p-6">
 			<h2 class="mb-4 text-2xl font-semibold">Featured Items</h2>
 			<p>
-				This section would probably include "favourited" items as well as featured items. For now I'm showing
-				the range of items. This would also be a carousel instead, with the listings being larger than they are
-				now.
+				This section would probably include "favourited" items as well as featured items. This would also be a
+				carousel instead.
 			</p>
 			<div class="mt-4 flex flex-row flex-wrap justify-around gap-6">
 				{#each featuredItems as item (item.name)}
-					<div class="flex w-40 flex-col rounded-lg bg-black/25 p-4">
+					<div class="flex w-64 flex-col rounded-lg bg-black/25 p-4">
 						<img src={item.image} alt={item.name} class="aspect-square w-full rounded-lg object-cover" />
 						<div class="mt-3 flex w-full items-center justify-between gap-3">
 							<h3 class="text-lg font-semibold">{item.name}</h3>
