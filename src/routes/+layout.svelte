@@ -4,7 +4,6 @@
 	import Container from '$lib/components/Container.svelte';
 	import bg from '$lib/assets/hc-hq-2.png';
 	import Sidebar from '$lib/components/Sidebar.svelte';
-	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
@@ -80,7 +79,6 @@
 	<link rel="icon" href={favicon} />
 	<meta name="title" content="Mounted - Hack Club" />
 	<meta name="description" content="Mounted - Hack Club" />
-	<meta property="og:url" content="https://vert.sh" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Mounted - Hack Club" />
 </svelte:head>
@@ -138,6 +136,31 @@
 							</div>
 						</div>
 					{/each}
+
+					<!-- bottom details -->
+					<div class="mt-auto flex flex-col items-center gap-2 text-xs text-white/50">
+						<span>Mounted - a Hack Club YSWS</span>
+						<span>
+							By: <a href="https://jovann.me" target="_blank" class="underline hover:text-white/90"
+								>Maya</a
+							>, Orpheus, and Heidi
+						</span>
+						<span>
+							<a
+								href="https://github.com/JovannMC/Mounted-YSWS"
+								target="_blank"
+								class="underline hover:text-white/90">GitHub</a
+							>
+							-
+							<a
+								href="https://github.com/JovannMC/Mounted-YSWS/commit/{__COMMIT_HASH__}"
+								target="_blank"
+								class="underline hover:text-white/90"
+							>
+								{__COMMIT_HASH__}
+							</a>
+						</span>
+					</div>
 				</div>
 			</Sidebar>
 
@@ -160,7 +183,7 @@
 
 					<div class="flex min-w-12 items-center justify-end gap-2">
 						<div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-sm text-white/90">
-							<RectangleGoggles class="h-4 w-4" />
+							<RectangleGoggles size={20} />
 							<span>6967</span>
 						</div>
 					</div>
