@@ -18,7 +18,7 @@
 		<span><BugOff class="text-white/90" size={44} /></span>
 		<h1 class="text-4xl font-bold">ded headset</h1>
 	</div>
-	<p class="mx-auto mt-4 text-lg text-white/90 whitespace-pre-line">
+	<p class="mx-auto mt-4 text-lg whitespace-pre-line text-white/90">
 		{isFake404 ? fake404 : realError}
 	</p>
 

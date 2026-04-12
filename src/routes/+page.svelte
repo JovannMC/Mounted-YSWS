@@ -41,7 +41,7 @@
 							<div class="shrink-0 text-sm font-semibold text-white/90">{item.price}</div>
 						</div>
 						{#if item.blurb}
-							<p class="mt-1 text-sm leading-snug text-white/60">{item.blurb}</p>
+							<p class="mt-1 text-sm leading-snug text-white/60!">{item.blurb}</p>
 						{/if}
 					</div>
 				{/each}

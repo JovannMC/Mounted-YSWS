@@ -25,6 +25,7 @@ export interface Project {
 	// could have likes in the real app
 	hours: number;
 	views: number;
+	status: 'in progress' | 'completed';
 	comments?: Comment[];
 }
 
@@ -77,6 +78,7 @@ export const projects: Project[] = [
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 10,
 		views: 4312,
+		status: 'completed',
 		comments: [comments[0], comments[1], comments[2], comments[3]]
 	},
 	{
@@ -89,6 +91,7 @@ export const projects: Project[] = [
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 20,
 		views: 63,
+		status: 'in progress',
 		comments: [comments[1]]
 	},
 	{
@@ -101,6 +104,7 @@ export const projects: Project[] = [
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 30,
 		views: 931,
+		status: 'in progress',
 		comments: [comments[2]]
 	},
 	{
@@ -113,6 +117,7 @@ export const projects: Project[] = [
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 40,
 		views: 512,
+		status: 'completed',
 		comments: [comments[0], comments[3]]
 	},
 	{
@@ -125,6 +130,7 @@ export const projects: Project[] = [
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 50,
 		views: 347,
+		status: 'completed',
 		comments: [comments[1]]
 	},
 	{
@@ -137,6 +143,7 @@ export const projects: Project[] = [
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 60,
 		views: 341,
+		status: 'in progress',
 		comments: [comments[2]]
 	},
 	{
@@ -149,6 +156,7 @@ export const projects: Project[] = [
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 70,
 		views: 404,
+		status: 'completed',
 		comments: [comments[1]]
 	}
 ];

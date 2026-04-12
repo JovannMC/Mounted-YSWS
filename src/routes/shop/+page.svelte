@@ -6,10 +6,21 @@
 
 	const categories: ShopCategory[] = ['all', ...new Set(items.map((item) => item.category))];
 
+	let query = $state('');
 	let activeCategory = $state<ShopCategory>('all');
+	const normalizedQuery = $derived(query.trim().toLowerCase());
 
 	const filteredItems = $derived(
-		activeCategory === 'all' ? items : items.filter((item) => item.category === activeCategory)
+		items.filter((item) => {
+			const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
+			const matchesSearch =
+				normalizedQuery.length === 0 ||
+				item.name.toLowerCase().includes(normalizedQuery) ||
+				(item.blurb?.toLowerCase().includes(normalizedQuery) ?? false) ||
+				item.category.toLowerCase().includes(normalizedQuery);
+
+			return matchesCategory && matchesSearch;
+		})
 	);
 
 	const formatLabel = (category: ShopCategory) =>
@@ -17,15 +28,24 @@
 </script>
 
 <div class="flex w-full flex-col pb-6">
+	<div class="mb-5">
+		<input
+			type="search"
+			bind:value={query}
+			placeholder="Search shop items, categories, or descriptions"
+			class="w-full rounded-2xl border border-white/20 bg-black/35 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-white/40 focus:ring-0"
+		/>
+	</div>
+
 	<div class="mb-6 flex flex-wrap gap-2">
 		{#each categories as category (category)}
 			<button
 				type="button"
 				onclick={() => (activeCategory = category)}
-				class={`rounded-full border px-4 py-1.5 transition ${
+				class={`rounded-full px-4 py-1.5 transition ${
 					activeCategory === category
-						? 'border-white/40 bg-white/25 text-white'
-						: 'border-white/25 bg-black/25 text-white/75 hover:border-white/30 hover:bg-white/15 hover:text-white'
+						? 'bg-white/25 text-white'
+						: 'bg-black/25 text-white/75 hover:bg-white/15 hover:text-white'
 				}`}
 			>
 				{formatLabel(category)}

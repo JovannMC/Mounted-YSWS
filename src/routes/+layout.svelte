@@ -100,7 +100,7 @@
 							Name that is long and truncated
 						</h1>
 						<!-- pfp -->
-						<div class="h-10 w-10 shrink-0 rounded-full border border-white/25">
+						<div class="h-10 w-10 shrink-0 rounded-full">
 							<img
 								src="https://placehold.co/100"
 								alt="pfp"
