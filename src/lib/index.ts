@@ -124,9 +124,9 @@ interface ShopItem {
 }
 
 export const items: ShopItem[] = [
-	{ name: 'VR Stickers', price: '20', image: 'https://placehold.co/150?text=Stickers' },
-	{ name: 'VRChat+ (1 month)', price: '120', image: 'https://placehold.co/150?text=VRChat' },
-	{ name: '$30 VR Asset Grant', price: '529', image: 'https://placehold.co/150?text=VR+Assets' },
-	{ name: '6x SlimeVR Trackers', price: '2599', image: 'https://placehold.co/150?text=SlimeVR' },
-	{ name: 'Quest 3s', price: '3679', image: 'https://placehold.co/150?text=Quest+3s' }
+	{ name: 'VR Stickers', price: '20', image: '/static/shop/slimevr_stickers.png' },
+	{ name: 'VRChat+ (1 month)', price: '120', image: '/static/shop/vrc_plus.png' },
+	{ name: '$30 VR Asset Grant', price: '529', image: '/static/shop/hcb_card.png' },
+	{ name: '6x SlimeVR Trackers', price: '2599', image: '/static/shop/slimevr_trackers.jpg' },
+	{ name: 'Quest 3s', price: '3679', image: '/static/shop/quest_3s.png' }
 ];

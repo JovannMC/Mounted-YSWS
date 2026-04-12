@@ -30,7 +30,7 @@
 			<div class="mt-4 flex flex-row flex-wrap justify-around gap-6">
 				{#each featuredItems as item (item.name)}
 					<div class="flex w-64 flex-col rounded-lg bg-black/25 p-4">
-						<img src={item.image} alt={item.name} class="aspect-square w-full rounded-lg object-cover" />
+						<img src={item.image} alt={item.name} class="aspect-square w-full rounded-lg object-contain" />
 						<div class="mt-3 flex w-full items-center justify-between gap-3">
 							<h3 class="text-lg font-semibold">{item.name}</h3>
 							<div class="text-sm font-medium text-white/90">{item.price}</div>
@@ -110,7 +110,7 @@
 	{#if link || link !== ''}
 		<a
 			href={link}
-			class="flex w-full flex-col items-start rounded-lg bg-black/25 p-6 hover:bg-black/30 {className}"
+			class="flex w-full flex-col items-start rounded-lg bg-black/25 p-6 hover:bg-black/40 {className}"
 		>
 			<h2 class="mb-2 text-xl font-semibold">{title}</h2>
 			<p>{description}</p>
