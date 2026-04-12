@@ -1,17 +1,15 @@
 <script lang="ts">
-	import { items } from '$lib';
+	import { getRandomizedItems, type ShopItem } from '$lib';
 	import { onMount } from 'svelte';
 
-	let featuredItems: (typeof items)[number][] = $state([]);
+	let featuredItems: ShopItem[] = $state([]);
 
-	onMount(() => {
-		featuredItems = items.sort(() => 0.5 - Math.random()).slice(0, 3);
-	});
+	onMount(() => (featuredItems = getRandomizedItems(3)));
 </script>
 
 <div class="flex w-full flex-col gap-3">
 	<!-- probably one like flavortown -->
-	<!-- tutorial/guide, links to hackatime/lapse/lookout, small help section (very minor ones - rest in help & support) -->
+	<!-- tutorial/guide, links to hackatime/lapse/lookout, small help section (very minor ones - rest in help & support in real app) -->
 
 	<!-- getting started -->
 	<div class="flex w-full flex-col rounded-lg">

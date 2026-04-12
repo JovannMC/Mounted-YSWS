@@ -1,17 +1,17 @@
 // all this data would actually be a database query in the real app, but this is just for visualization for the gap year application
 
-interface User {
+export interface User {
 	username: string;
 	profile_image: string;
 }
 
-interface Comment {
+export interface Comment {
 	username: string;
 	content: string;
 	timestamp: string;
 }
 
-interface Project {
+export interface Project {
 	// details
 	author: User;
 	id: number;
@@ -153,13 +153,14 @@ export const projects: Project[] = [
 	}
 ];
 
-interface ShopItem {
+export interface ShopItem {
 	name: string;
 	price: string;
 	image: string;
 	blurb?: string;
 	category: 'stickers' | 'cards' | 'hardware' | 'software' | 'games';
 }
+
 export const items: ShopItem[] = [
 	// stickers
 	{
@@ -360,3 +361,14 @@ export const items: ShopItem[] = [
 		category: 'games'
 	}
 ];
+
+export const getRandomizedItems = (count: number): ShopItem[] => {
+	const shuffled = [...items];
+
+	for (let i = shuffled.length - 1; i > 0; i -= 1) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+	}
+
+	return shuffled.slice(0, count).map((item) => ({ ...item }));
+};
