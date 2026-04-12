@@ -13,11 +13,12 @@
 	import '@fontsource-variable/open-sans/wght.css';
 	import { OverlayScrollbarsComponent } from 'overlayscrollbars-svelte';
 	import 'overlayscrollbars/overlayscrollbars.css';
+	import { items, projects, users } from '$lib';
 
 	interface SidebarItem {
 		label: string;
 		link: string;
-		side: string;
+		side: string | number;
 		active?: boolean;
 	}
 
@@ -26,18 +27,22 @@
 		items: SidebarItem[];
 	}
 
+	const shopCount = items.length;
+	const projectsCount = projects.filter((project) => project.author === users[0]).length;
+	const exploreCount = projects.length;
+
 	const sections: SidebarSection[] = $state([
 		{
 			items: [
 				{ label: 'Dashboard', link: '/', side: '' },
-				{ label: 'Projects', link: '/projects', side: '' }
+				{ label: 'Projects', link: '/projects', side: projectsCount }
 			]
 		},
 		{
 			title: 'Other Stuff',
 			items: [
-				{ label: 'Explore', link: '/explore', side: '69' },
-				{ label: 'Shop', link: '/shop', side: '' },
+				{ label: 'Explore', link: '/explore', side: exploreCount },
+				{ label: 'Shop', link: '/shop', side: shopCount },
 				{ label: 'Settings', link: '/settings', side: '' },
 				{ label: 'Help & Support', link: '/help', side: '' }
 			]
@@ -156,7 +161,7 @@
 					<div class="flex min-w-12 items-center justify-end gap-2">
 						<div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-sm text-white/90">
 							<RectangleGoggles class="h-4 w-4" />
-							<span>471</span>
+							<span>6967</span>
 						</div>
 					</div>
 				</div>

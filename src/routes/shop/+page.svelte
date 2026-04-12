@@ -1,9 +1,54 @@
 <script lang="ts">
+	import { items } from '$lib';
 
+	type ItemCategory = (typeof items)[number]['category'];
+	type ShopCategory = 'all' | ItemCategory;
+
+	const categories: ShopCategory[] = ['all', ...new Set(items.map((item) => item.category))];
+
+	let activeCategory = $state<ShopCategory>('all');
+
+	const filteredItems = $derived(
+		activeCategory === 'all' ? items : items.filter((item) => item.category === activeCategory)
+	);
+
+	const formatLabel = (category: ShopCategory) =>
+		category === 'all' ? 'All' : category.charAt(0).toUpperCase() + category.slice(1);
 </script>
 
-<div class="flex h-full w-full items-center justify-center">
-	<h1 class="text-4xl font-bold">Hello Shop!</h1>
+<div class="flex w-full flex-col pb-6">
+	<div class="mb-6 flex flex-wrap gap-2">
+		{#each categories as category (category)}
+			<button
+				type="button"
+				onclick={() => (activeCategory = category)}
+				class={`rounded-full border px-4 py-1.5 transition ${
+					activeCategory === category
+						? 'border-white/40 bg-white/25 text-white'
+						: 'border-white/25 bg-black/25 text-white/75 hover:border-white/30 hover:bg-white/15 hover:text-white'
+				}`}
+			>
+				{formatLabel(category)}
+			</button>
+		{/each}
+	</div>
+
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+		{#each filteredItems as item (item.name)}
+			<div
+				class="rounded-2xl border border-white/25 bg-black/25 p-3 backdrop-blur-md transition hover:bg-black/40"
+			>
+				<img src={item.image} alt={item.name} class="aspect-square w-full rounded-xl object-contain" />
+				<div class="mt-3 flex items-start justify-between gap-3">
+					<h3 class="text-base leading-tight font-semibold">{item.name}</h3>
+					<p class="shrink-0 text-sm font-semibold text-white/90">{item.price}</p>
+				</div>
+				{#if item.blurb}
+					<p class="mt-1 text-sm leading-snug text-white/60">{item.blurb}</p>
+				{/if}
+			</div>
+		{/each}
+	</div>
 </div>
 
 <style lang="scss">

@@ -76,7 +76,7 @@ export const projects: Project[] = [
 		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 10,
-		views: 100,
+		views: 4312,
 		comments: [comments[0], comments[1], comments[2], comments[3]]
 	},
 	{
@@ -88,7 +88,7 @@ export const projects: Project[] = [
 		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 20,
-		views: 200,
+		views: 63,
 		comments: [comments[1]]
 	},
 	{
@@ -100,7 +100,7 @@ export const projects: Project[] = [
 		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 30,
-		views: 200,
+		views: 931,
 		comments: [comments[2]]
 	},
 	{
@@ -112,8 +112,44 @@ export const projects: Project[] = [
 		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
 		hours: 40,
-		views: 300,
+		views: 512,
 		comments: [comments[0], comments[3]]
+	},
+	{
+		author: users[1],
+		name: 'Project 5',
+		id: 5,
+		description: 'This is a description of project 5.',
+		image: 'https://placehold.co/150',
+		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
+		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
+		hours: 50,
+		views: 347,
+		comments: [comments[1]]
+	},
+	{
+		author: users[2],
+		name: 'Project 6',
+		id: 6,
+		description: 'This is a description of project 6.',
+		image: 'https://placehold.co/150',
+		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
+		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
+		hours: 60,
+		views: 341,
+		comments: [comments[2]]
+	},
+	{
+		author: users[1],
+		name: 'Project 7',
+		id: 7,
+		description: 'This is a description of project 7.',
+		image: 'https://placehold.co/150',
+		repo_url: 'https://github.com/JovannMC/Mounted-YSWS',
+		demo_url: 'https://github.com/JovannMC/Mounted-YSWS',
+		hours: 70,
+		views: 404,
+		comments: [comments[1]]
 	}
 ];
 
@@ -121,12 +157,206 @@ interface ShopItem {
 	name: string;
 	price: string;
 	image: string;
+	blurb?: string;
+	category: 'stickers' | 'cards' | 'hardware' | 'software' | 'games';
 }
-
 export const items: ShopItem[] = [
-	{ name: 'VR Stickers', price: '20', image: '/static/shop/slimevr_stickers.png' },
-	{ name: 'VRChat+ (1 month)', price: '120', image: '/static/shop/vrc_plus.png' },
-	{ name: '$30 VR Asset Grant', price: '529', image: '/static/shop/hcb_card.png' },
-	{ name: '6x SlimeVR Trackers', price: '2599', image: '/static/shop/slimevr_trackers.jpg' },
-	{ name: 'Quest 3s', price: '3679', image: '/static/shop/quest_3s.png' }
+	// stickers
+	{
+		name: 'VR-related Stickers',
+		price: '20',
+		image: '/static/shop/slimevr_stickers_v1.png',
+		blurb: 'ooh, vr stickers!',
+		category: 'stickers'
+	},
+	{
+		name: 'SlimeVR Stickers (v1)',
+		price: '20',
+		image: '/static/shop/slimevr_stickers_v1.png',
+		blurb: 'ooh, cute slime stickers!',
+		category: 'stickers'
+	},
+	{
+		name: 'SlimeVR Stickers (v2)',
+		price: '20',
+		image: '/static/shop/slimevr_stickers_v2.png',
+		blurb: 'ooh, cute slime stickers, but with me (those headphones)!',
+		category: 'stickers'
+	},
+	{
+		name: 'SlimeVR Stickers (v3)',
+		price: '20',
+		image: '/static/shop/slimevr_stickers_v3_sketch.webp',
+		blurb: 'ooh, cute slime stickers, but with me more pretty!',
+		category: 'stickers'
+	},
+
+	// cards
+	{
+		name: '$25 Meta Store Gift Card',
+		price: '469',
+		image: '/static/shop/meta_gc.jpg',
+		blurb: 'buy stuff from the Meta store, you standalone user you',
+		category: 'cards'
+	},
+	{
+		name: '$25 Steam Gift Card',
+		price: '469',
+		image: '/static/shop/steam_gc.jpg',
+		blurb: 'fuel your Steam library.. hopefully with VR stuff',
+		category: 'cards'
+	},
+	{
+		name: '$15 VR Asset Grant',
+		price: '265',
+		image: '/static/shop/hcb_card.png',
+		blurb: 'style up your vr avatar or game!',
+		category: 'cards'
+	},
+	{
+		name: '$30 VR Asset Grant',
+		price: '529',
+		image: '/static/shop/hcb_card.png',
+		blurb: 'style up your vr avatar or game, but more!',
+		category: 'cards'
+	},
+	{
+		name: '$50 VR Asset Grant',
+		price: '882',
+		image: '/static/shop/hcb_card.png',
+		blurb: 'style up your vr avatar or game, but even more!',
+		category: 'cards'
+	},
+
+	// hardware
+	{
+		name: '6x SlimeVR Trackers',
+		price: '1999',
+		image: '/static/shop/slimevr_trackers.jpg',
+		blurb: 'time to go dancing!',
+		category: 'hardware'
+	},
+	{
+		name: '10x SlimeVR Trackers',
+		price: '2999',
+		image: '/static/shop/slimevr_trackers.jpg',
+		blurb: 'time to go dancing.. or motion capturing with this one!',
+		category: 'hardware'
+	},
+	{
+		name: 'Quest 2 (used)',
+		price: '2499',
+		image: '/static/shop/quest_2.png',
+		blurb: 'the grandparent of the quest 3',
+		category: 'hardware'
+	},
+	{
+		name: 'Quest 3s (used)',
+		price: '3679',
+		image: '/static/shop/quest_3s.png',
+		blurb: 'the little sister of the quest 3',
+		category: 'hardware'
+	},
+	{
+		name: 'Quest 3 (used)',
+		price: '4299',
+		image: '/static/shop/quest_3.png',
+		blurb: 'the favourite child, probably',
+		category: 'hardware'
+	},
+	{
+		name: 'Valve Index',
+		price: '3679',
+		image: '/static/shop/valve_index.jpg',
+		blurb: 'the previously premium valve headset',
+		category: 'hardware'
+	},
+	{
+		name: 'Steam Frame',
+		price: '6700',
+		image: '/static/shop/steam_frame.jpg',
+		blurb: 'the new premium valve headset',
+		category: 'hardware'
+	},
+
+	// software
+	{
+		name: 'Virtual Desktop',
+		price: '350',
+		image: '/static/shop/virtual_desktop.webp',
+		blurb: 'honestly, never used this one for wireless pc vr streaming',
+		category: 'software'
+	},
+	{
+		name: 'VRChat+ (1 month)',
+		price: '120',
+		image: '/static/shop/vrc_plus.png',
+		blurb: 'alright, go back to cuddling your friends',
+		category: 'software'
+	},
+	{
+		name: 'VRChat+ (1 year)',
+		price: '1200',
+		image: '/static/shop/vrc_plus.png',
+		blurb: 'alright, go back to cuddling your friends for longer',
+		category: 'software'
+	},
+
+	// games
+	{
+		name: 'Example Indie Game',
+		price: '175',
+		image: '/static/shop/steam_indie.jpg',
+		blurb: 'support those vr indie devs!',
+		category: 'games'
+	},
+	{
+		name: 'Phasmophobia',
+		price: '250',
+		image: '/static/shop/steam_indie.jpg',
+		blurb: 'fall on the floor in fear with your friends',
+		category: 'games'
+	},
+	{
+		name: 'Beat Saber',
+		price: '300',
+		image: '/static/shop/steam_indie.jpg',
+		blurb: 'make this your workout, end up detaching your arms',
+		category: 'games'
+	},
+	{
+		name: 'Walkabout Mini Golf',
+		price: '300',
+		image: '/static/shop/steam_indie.jpg',
+		blurb: 'chill multiplayer mini golf',
+		category: 'games'
+	},
+	{
+		name: 'Job Simulator',
+		price: '300',
+		image: '/static/shop/steam_indie.jpg',
+		blurb: 'chaotic office VR fun',
+		category: 'games'
+	},
+	{
+		name: 'Blade & Sorcery',
+		price: '400',
+		image: '/static/shop/steam_indie.jpg',
+		blurb: 'sandbox melee combat in VR',
+		category: 'games'
+	},
+	{
+		name: 'Boneworks',
+		price: '450',
+		image: '/static/shop/steam_indie.jpg',
+		blurb: 'physics-heavy VR action',
+		category: 'games'
+	},
+	{
+		name: 'Half-Life: Alyx',
+		price: '600',
+		image: '/static/shop/steam_indie.jpg',
+		blurb: 'come on, its half life in vr, you know you want it',
+		category: 'games'
+	}
 ];

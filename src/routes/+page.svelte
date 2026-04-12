@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { items } from '$lib';
+	import { onMount } from 'svelte';
 
-	const featuredItems = items.sort(() => 0.5 - Math.random()).slice(0, 3);
+	let featuredItems: (typeof items)[number][] = $state([]);
+
+	onMount(() => {
+		featuredItems = items.sort(() => 0.5 - Math.random()).slice(0, 3);
+	});
 </script>
 
 <div class="flex w-full flex-col gap-3">
@@ -27,14 +32,19 @@
 				This section would probably include "favourited" items as well as featured items. This would also be a
 				carousel instead.
 			</p>
-			<div class="mt-4 flex flex-row flex-wrap justify-around gap-6">
+			<div class="mt-4 flex flex-row justify-around gap-6">
 				{#each featuredItems as item (item.name)}
-					<div class="flex w-64 flex-col rounded-lg bg-black/25 p-4">
-						<img src={item.image} alt={item.name} class="aspect-square w-full rounded-lg object-contain" />
-						<div class="mt-3 flex w-full items-center justify-between gap-3">
-							<h3 class="text-lg font-semibold">{item.name}</h3>
-							<div class="text-sm font-medium text-white/90">{item.price}</div>
+					<div
+						class="w-64 rounded-2xl border border-white/25 bg-black/25 p-3 backdrop-blur-md transition hover:bg-black/40"
+					>
+						<img src={item.image} alt={item.name} class="aspect-square w-full rounded-xl object-contain" />
+						<div class="mt-3 flex w-full items-start justify-between gap-3">
+							<h3 class="text-base leading-tight font-semibold">{item.name}</h3>
+							<div class="shrink-0 text-sm font-semibold text-white/90">{item.price}</div>
 						</div>
+						{#if item.blurb}
+							<p class="mt-1 text-sm leading-snug text-white/60">{item.blurb}</p>
+						{/if}
 					</div>
 				{/each}
 			</div>
