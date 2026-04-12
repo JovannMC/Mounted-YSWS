@@ -17,7 +17,7 @@
 	<!-- project details -->
 	<div class="overflow-hidden rounded-3xl border border-white/20 bg-black/25">
 		<div class="grid gap-0 lg:grid-cols-[0.8fr_1.2fr]">
-			<div class="relative min-h-56 bg-white/10">
+			<div class="relative min-h-56 bg-white/15">
 				<img src={project.image} alt={project.name} class="h-full w-full object-cover" />
 			</div>
 
@@ -32,7 +32,7 @@
 							{formatStatus(project.status)}
 						</span>
 						<span
-							class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold tracking-wide text-white/75 uppercase"
+							class="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide text-white/75 uppercase"
 						>
 							{project.views} views
 						</span>
@@ -42,9 +42,9 @@
 						<p class="mt-1.5 text-sm text-white/65">By {project.author.username}</p>
 					</div>
 
-					<div class="flex flex-wrap gap-2 text-sm text-white/60">
-						<span class="rounded-md bg-white/10 px-2.5 py-1">{project.hours} hours</span>
-						<span class="rounded-md bg-white/10 px-2.5 py-1">Project #{project.id}</span>
+					<div class="flex flex-wrap gap-2 text-sm text-white/65">
+						<span class="rounded-md bg-white/15 px-2.5 py-1">{project.hours} hours</span>
+						<span class="rounded-md bg-white/15 px-2.5 py-1">Project #{project.id}</span>
 					</div>
 
 					<p class="text-sm leading-relaxed text-white/80">{project.description}</p>
@@ -56,16 +56,16 @@
 						href={project.repo_url}
 						target="_blank"
 						rel="noreferrer"
-						class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-white/85"
+						class="rounded-full bg-black/25 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-black/40"
 					>
-						View GitHub
+						View Repo
 					</a>
 					{#if project.demo_url}
 						<a
 							href={project.demo_url}
 							target="_blank"
 							rel="noreferrer"
-							class="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/15"
+							class="rounded-full border border-white/25 bg-white/15 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/25"
 						>
 							View Demo
 						</a>
@@ -73,13 +73,14 @@
 					{#if ownProject}
 						<a
 							href={`/projects/${project.id}/edit`}
-							class="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/15"
+							class="rounded-full border border-white/25 bg-white/15 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/25"
 						>
 							Edit Project
 						</a>
 						<button
 							type="button"
 							class="rounded-full border border-emerald-300/45 bg-emerald-400/15 px-4 py-2 text-sm font-semibold text-emerald-100 transition-colors hover:bg-emerald-400/25"
+							onclick={void alert('pretend this ships the project <3')}
 						>
 							Ship Project
 						</button>
@@ -94,7 +95,7 @@
 		<div class="space-y-3">
 			<h2 class="text-xl font-semibold">Comments</h2>
 			<div class="space-y-3">
-				{#each project.comments as comment, i (i)}
+				{#each [...project.comments].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()) as comment, i (i)}
 					<div class="rounded-2xl border border-white/20 bg-black/25 p-4">
 						<div class="flex items-center justify-between gap-3 text-sm text-white/65">
 							<span>{comment.username}</span>

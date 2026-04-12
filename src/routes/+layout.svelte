@@ -142,7 +142,7 @@
 											<span class="h-4 w-4 rounded-sm border border-blue-400"></span>
 											<span>{item.label}</span>
 										</div>
-										<span class="text-sm text-white/60">{item.side}</span>
+										<span class="text-sm text-white/65">{item.side}</span>
 									</a>
 								{/each}
 							</div>
@@ -184,7 +184,7 @@
 					<div class="flex min-w-12 items-center gap-2">
 						{#if isSubPage}
 							<button
-								class="rounded-full bg-white/10 p-3 transition-colors hover:bg-white/20"
+								class="rounded-full bg-white/15 p-3 transition-colors hover:bg-white/20"
 								onclick={() => {
 									if (window.history.length > 1) {
 										window.history.back();
@@ -208,7 +208,9 @@
 					</h2>
 
 					<div class="flex min-w-12 items-center justify-end gap-2">
-						<div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-sm text-white/90">
+						<div
+							class="flex items-center gap-2 rounded-full bg-white/15 px-3 py-2 text-sm text-white/90 transition-colors hover:bg-black/20"
+						>
 							<RectangleGoggles size={20} />
 							<span>6967</span>
 						</div>

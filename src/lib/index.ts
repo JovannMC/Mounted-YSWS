@@ -44,26 +44,34 @@ export const users: User[] = [
 	}
 ];
 
+const getRandomTimestamp = (start: Date, end: Date): string => {
+	const randomTime = start.getTime() + Math.random() * (end.getTime() - start.getTime());
+	return new Date(randomTime).toISOString();
+};
+
+const randomStart = new Date('2026-04-01T00:00:00Z');
+const randomEnd = new Date();
+
 export const comments: Comment[] = [
 	{
 		username: 'Maya',
 		content: 'This is a comment from Maya.',
-		timestamp: '2024-06-01T12:00:00Z'
+		timestamp: getRandomTimestamp(randomStart, randomEnd)
 	},
 	{
 		username: 'Heidi',
 		content: 'This is a comment from Heidi.',
-		timestamp: '2024-06-01T14:00:00Z'
+		timestamp: getRandomTimestamp(randomStart, randomEnd)
 	},
 	{
 		username: 'Orpheus',
 		content: 'This is a comment from Orpheus.',
-		timestamp: '2024-06-01T16:00:00Z'
+		timestamp: getRandomTimestamp(randomStart, randomEnd)
 	},
 	{
 		username: 'Maya',
 		content: 'This is another comment from Maya.',
-		timestamp: '2024-06-04T18:00:00Z'
+		timestamp: getRandomTimestamp(randomStart, randomEnd)
 	}
 ];
 

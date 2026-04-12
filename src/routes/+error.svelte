@@ -24,7 +24,7 @@
 
 	<!-- restart headset button (go back) -->
 	<a
-		class="mt-6 rounded-lg bg-white/10 px-4 py-2 text-sm font-medium text-white/90 transition-colors hover:bg-white/20"
+		class="mt-6 rounded-lg bg-white/15 px-4 py-2 text-sm font-medium text-white/90 transition-colors hover:bg-white/25"
 		href="/"
 	>
 		Restart Headset

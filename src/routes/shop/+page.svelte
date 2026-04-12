@@ -45,7 +45,7 @@
 				class={`rounded-full px-4 py-1.5 transition ${
 					activeCategory === category
 						? 'bg-white/25 text-white'
-						: 'bg-black/25 text-white/75 hover:bg-white/15 hover:text-white'
+						: 'bg-black/25 text-white/90 hover:bg-white/15 hover:text-white'
 				}`}
 			>
 				{formatLabel(category)}
@@ -64,7 +64,7 @@
 					<p class="shrink-0 text-sm font-semibold text-white/90">{item.price}</p>
 				</div>
 				{#if item.blurb}
-					<p class="mt-1 text-sm leading-snug text-white/60">{item.blurb}</p>
+					<p class="mt-1 text-sm leading-snug text-white/65">{item.blurb}</p>
 				{/if}
 			</div>
 		{/each}

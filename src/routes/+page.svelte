@@ -41,7 +41,7 @@
 							<div class="shrink-0 text-sm font-semibold text-white/90">{item.price}</div>
 						</div>
 						{#if item.blurb}
-							<p class="mt-1 text-sm leading-snug text-white/60!">{item.blurb}</p>
+							<p class="mt-1 text-sm leading-snug text-white/65!">{item.blurb}</p>
 						{/if}
 					</div>
 				{/each}
@@ -124,7 +124,7 @@
 			<p>{description}</p>
 		</a>
 	{:else}
-		<div class="flex w-full flex-col items-start rounded-lg bg-black/25 p-6 transition {className}">
+		<div class="flex w-full flex-col items-start rounded-lg bg-black/25 p-6 {className}">
 			<h2 class="mb-2 text-xl font-semibold">{title}</h2>
 			<p>{description}</p>
 		</div>
