@@ -135,9 +135,9 @@
 			<div class="flex flex-col gap-1">
 				<h2 class="text-xl font-semibold text-white">Commit timeline</h2>
 				<p class="text-sm text-white/65">
-					This is a very basic visualization of how the system for commenting on commits would look like,
-					either singular or grouped, from oldest to newest. You can test it on any real repo though the
-					comments & grouping are randomized.
+					This is a very basic visualization of how the system for commenting on commits and timestamps (on
+					timelapses) would look like, either singular or grouped, from oldest to newest. You can test it on
+					any real repo though the comments & grouping are randomized.
 				</p>
 			</div>
 

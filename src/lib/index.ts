@@ -72,7 +72,7 @@ export const comments: Comment[] = [
 		username: 'Maya',
 		content: 'This is another comment from Maya.',
 		timestamp: getRandomTimestamp(randomStart, randomEnd)
-	}
+	},
 ];
 
 export const projects: Project[] = [

@@ -2,7 +2,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import Container from '$lib/components/Container.svelte';
-	import bg from '$lib/assets/hc-hq-2.png';
+	import bg from '$lib/assets/hc-hq-6.png';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import { onMount } from 'svelte';
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
@@ -51,6 +51,22 @@
 
 	const allSidebarItems = sections.flatMap((section) => section.items);
 
+	let parallaxX = $state(0);
+	let parallaxY = $state(0);
+
+	function updateParallax(event: MouseEvent) {
+		const x = (event.clientX / window.innerWidth - 0.5) * 1.5;
+		const y = (event.clientY / window.innerHeight - 0.5) * 1.5;
+
+		parallaxX = x * 18;
+		parallaxY = y * 12;
+	}
+
+	function resetParallax() {
+		parallaxX = 0;
+		parallaxY = 0;
+	}
+
 	// FIXME minor oversight lmfao - can't pass data from +page.svelte into +layout.svelte obviously
 	// so can't change the title based on the page if its a subpage. gotta do dumb workaround for the projects pages lol
 	let title = $state('Mounted');
@@ -83,6 +99,17 @@
 	onMount(updatePathState);
 	onNavigate(updatePathState);
 
+	// parallax effect stuff
+	onMount(() => {
+		window.addEventListener('mousemove', updateParallax);
+		window.addEventListener('mouseleave', resetParallax);
+
+		return () => {
+			window.removeEventListener('mousemove', updateParallax);
+			window.removeEventListener('mouseleave', resetParallax);
+		};
+	});
+
 	let { children } = $props();
 </script>
 
@@ -95,7 +122,14 @@
 	<meta property="og:title" content="Mounted - Hack Club" />
 </svelte:head>
 
-<img src={bg} alt="background" class="absolute inset-0 h-full w-full object-cover select-none" />
+<div class="fixed inset-0 -z-10 overflow-hidden">
+	<img
+		src={bg}
+		alt="background"
+		class="absolute inset-0 h-full w-full object-cover select-none"
+		style={`transform: translate3d(${parallaxX}px, ${parallaxY}px, 0) scale(1.06); transition: transform 120ms ease-out;`}
+	/>
+</div>
 
 <div class="relative z-10 flex min-h-screen w-full items-center justify-center p-10">
 	<Container>
@@ -138,7 +172,7 @@
 											item.active ? 'bg-white/18' : ' hover:bg-white/15'
 										]}
 									>
-										<div class="flex items-center gap-3">
+										<div class="flex items-center gap-3 text-base">
 											<span class="h-4 w-4 rounded-sm border border-blue-400"></span>
 											<span>{item.label}</span>
 										</div>
