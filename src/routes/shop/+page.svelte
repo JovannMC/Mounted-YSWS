@@ -33,7 +33,7 @@
 			type="search"
 			bind:value={query}
 			placeholder="Search shop items, categories, or descriptions"
-			class="w-full rounded-2xl border border-white/20 bg-black/35 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-white/40 focus:ring-0"
+			class="w-full rounded-2xl border border-white/20 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-white/40 focus:ring-0"
 		/>
 	</div>
 
@@ -56,7 +56,7 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 		{#each filteredItems as item (item.name)}
 			<div
-				class="rounded-2xl border border-white/25 bg-black/25 p-3 backdrop-blur-md transition hover:bg-black/40"
+				class="rounded-2xl border border-white/25 bg-black/25 p-3 backdrop-blur-md transition-colors hover:bg-black/40"
 			>
 				<img src={item.image} alt={item.name} class="aspect-square w-full rounded-xl object-contain" />
 				<div class="mt-3 flex items-start justify-between gap-3">

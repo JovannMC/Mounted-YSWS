@@ -13,6 +13,7 @@
 	import { OverlayScrollbarsComponent } from 'overlayscrollbars-svelte';
 	import 'overlayscrollbars/overlayscrollbars.css';
 	import { items, projects, users } from '$lib';
+	import { SvelteURL } from 'svelte/reactivity';
 
 	interface SidebarItem {
 		label: string;
@@ -50,6 +51,8 @@
 
 	const allSidebarItems = sections.flatMap((section) => section.items);
 
+	// FIXME minor oversight lmfao - can't pass data from +page.svelte into +layout.svelte obviously
+	// so can't change the title based on the page if its a subpage. gotta do dumb workaround for the projects pages lol
 	let title = $state('Mounted');
 	let isSubPage = $state(false);
 
@@ -62,6 +65,15 @@
 			const isActive = item.link === currentPath;
 			item.active = isActive;
 			if (isActive) activeTitle = item.label;
+		}
+
+		// the dumb workaround because of above comment lol
+		if (currentPath.startsWith('/projects/')) {
+			for (const project of projects) {
+				if (currentPath.includes(`/projects/${project.id}`)) continue;
+				activeTitle = project.name;
+				break;
+			}
 		}
 
 		title = activeTitle;
@@ -122,8 +134,8 @@
 									<a
 										href={item.link}
 										class={[
-											'flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-sm',
-											item.active ? 'bg-white/18' : 'hover:bg-white/15'
+											'flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-sm transition',
+											item.active ? 'bg-white/18' : ' hover:bg-white/15'
 										]}
 									>
 										<div class="flex items-center gap-3">
@@ -141,21 +153,23 @@
 					<div class="mt-auto flex flex-col items-center gap-2 text-xs text-white/50">
 						<span>Mounted - a Hack Club YSWS</span>
 						<span>
-							By: <a href="https://jovann.me" target="_blank" class="underline hover:text-white/90"
-								>Maya</a
+							By: <a
+								href="https://jovann.me"
+								target="_blank"
+								class="underline transition-colors hover:text-white/90">Maya</a
 							>, Orpheus, and Heidi
 						</span>
 						<span>
 							<a
 								href="https://github.com/JovannMC/Mounted-YSWS"
 								target="_blank"
-								class="underline hover:text-white/90">GitHub</a
+								class="underline transition-colors hover:text-white/90">GitHub</a
 							>
 							-
 							<a
 								href="https://github.com/JovannMC/Mounted-YSWS/commit/{__COMMIT_HASH__}"
 								target="_blank"
-								class="underline hover:text-white/90"
+								class="underline transition-colors hover:text-white/90"
 							>
 								{__COMMIT_HASH__}
 							</a>
@@ -169,7 +183,19 @@
 				<div class="relative flex h-12 w-full shrink-0 items-center justify-between">
 					<div class="flex min-w-12 items-center gap-2">
 						{#if isSubPage}
-							<button class="rounded-full bg-white/10 p-3 hover:bg-white/20">
+							<button
+								class="rounded-full bg-white/10 p-3 transition-colors hover:bg-white/20"
+								onclick={() => {
+									if (window.history.length > 1) {
+										window.history.back();
+									} else {
+										const url = new SvelteURL(window.location.href);
+										url.pathname = url.pathname.split('/').slice(0, -1).join('/') || '/';
+										window.history.replaceState({}, '', url);
+										window.dispatchEvent(new PopStateEvent('popstate'));
+									}
+								}}
+							>
 								<ChevronLeft class="text-white/90" />
 							</button>
 						{/if}

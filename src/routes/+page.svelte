@@ -33,7 +33,7 @@
 			<div class="mt-4 flex flex-row justify-around gap-6">
 				{#each featuredItems as item (item.name)}
 					<div
-						class="w-64 rounded-2xl border border-white/25 bg-black/25 p-3 backdrop-blur-md transition hover:bg-black/40"
+						class="w-64 rounded-2xl border border-white/25 bg-black/25 p-3 backdrop-blur-md transition-colors hover:bg-black/40"
 					>
 						<img src={item.image} alt={item.name} class="aspect-square w-full rounded-xl object-contain" />
 						<div class="mt-3 flex w-full items-start justify-between gap-3">
@@ -118,13 +118,13 @@
 	{#if link || link !== ''}
 		<a
 			href={link}
-			class="flex w-full flex-col items-start rounded-lg bg-black/25 p-6 hover:bg-black/40 {className}"
+			class="flex w-full flex-col items-start rounded-lg bg-black/25 p-6 transition-colors hover:bg-black/40 {className}"
 		>
 			<h2 class="mb-2 text-xl font-semibold">{title}</h2>
 			<p>{description}</p>
 		</a>
 	{:else}
-		<div class="flex w-full flex-col items-start rounded-lg bg-black/25 p-6 {className}">
+		<div class="flex w-full flex-col items-start rounded-lg bg-black/25 p-6 transition {className}">
 			<h2 class="mb-2 text-xl font-semibold">{title}</h2>
 			<p>{description}</p>
 		</div>
