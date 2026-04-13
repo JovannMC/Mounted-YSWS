@@ -149,7 +149,7 @@
 					class="w-full rounded-2xl border border-white/20 bg-black/25 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-white/40 focus:ring-0"
 				/>
 				<button
-					onclick={void loadCommits(repoInput)}
+					onclick={() => loadCommits(repoInput)}
 					class="rounded-2xl border border-white/20 bg-black/25 px-4 py-2 text-sm text-white transition hover:bg-black/40"
 				>
 					Load
