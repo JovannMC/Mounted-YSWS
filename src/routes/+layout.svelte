@@ -185,6 +185,11 @@
 
 					<!-- bottom details -->
 					<div class="mt-auto flex flex-col items-center gap-2 text-xs text-white/50">
+						<img
+							src="/static/flag-orpheus-left.svg"
+							alt="Orpheus holding a Hack Club flag"
+							class="absolute bottom-14 left-0 h-24 select-none pointer-events-none"
+						/>
 						<span>Mounted - a Hack Club YSWS</span>
 						<span>
 							By: <a
