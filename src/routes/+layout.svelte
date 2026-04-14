@@ -2,7 +2,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import Container from '$lib/components/Container.svelte';
-	import bg from '$lib/assets/hc-hq-6.png';
+	import bg from '$lib/assets/hc-hq.webp';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import { onMount } from 'svelte';
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';

@@ -182,21 +182,21 @@ export const items: ShopItem[] = [
 	{
 		name: 'VR-related Stickers',
 		price: '20',
-		image: '/static/shop/slimevr_stickers_v1.png',
+		image: '/static/shop/slimevr_stickers_v1.webp',
 		blurb: 'ooh, vr stickers!',
 		category: 'stickers'
 	},
 	{
 		name: 'SlimeVR Stickers (v1)',
 		price: '20',
-		image: '/static/shop/slimevr_stickers_v1.png',
+		image: '/static/shop/slimevr_stickers_v1.webp',
 		blurb: 'ooh, cute slime stickers!',
 		category: 'stickers'
 	},
 	{
 		name: 'SlimeVR Stickers (v2)',
 		price: '20',
-		image: '/static/shop/slimevr_stickers_v2.png',
+		image: '/static/shop/slimevr_stickers_v2.webp',
 		blurb: 'ooh, cute slime stickers, but with me (those headphones)!',
 		category: 'stickers'
 	},
@@ -212,35 +212,35 @@ export const items: ShopItem[] = [
 	{
 		name: '$25 Meta Store Gift Card',
 		price: '469',
-		image: '/static/shop/meta_gc.jpg',
+		image: '/static/shop/meta_gc.webp',
 		blurb: 'buy stuff from the Meta store, you standalone user you',
 		category: 'cards'
 	},
 	{
 		name: '$25 Steam Gift Card',
 		price: '469',
-		image: '/static/shop/steam_gc.jpg',
+		image: '/static/shop/steam_gc.webp',
 		blurb: 'fuel your Steam library.. hopefully with VR stuff',
 		category: 'cards'
 	},
 	{
 		name: '$15 VR Asset Grant',
 		price: '265',
-		image: '/static/shop/hcb_card.png',
+		image: '/static/shop/hcb_card.webp',
 		blurb: 'style up your vr avatar or game!',
 		category: 'cards'
 	},
 	{
 		name: '$30 VR Asset Grant',
 		price: '529',
-		image: '/static/shop/hcb_card.png',
+		image: '/static/shop/hcb_card.webp',
 		blurb: 'style up your vr avatar or game, but more!',
 		category: 'cards'
 	},
 	{
 		name: '$50 VR Asset Grant',
 		price: '882',
-		image: '/static/shop/hcb_card.png',
+		image: '/static/shop/hcb_card.webp',
 		blurb: 'style up your vr avatar or game, but even more!',
 		category: 'cards'
 	},
@@ -249,49 +249,49 @@ export const items: ShopItem[] = [
 	{
 		name: '6x SlimeVR Trackers',
 		price: '1999',
-		image: '/static/shop/slimevr_trackers.jpg',
+		image: '/static/shop/slimevr_trackers.webp',
 		blurb: 'time to go dancing!',
 		category: 'hardware'
 	},
 	{
 		name: '10x SlimeVR Trackers',
 		price: '2999',
-		image: '/static/shop/slimevr_trackers.jpg',
+		image: '/static/shop/slimevr_trackers.webp',
 		blurb: 'time to go dancing.. or motion capturing with this one!',
 		category: 'hardware'
 	},
 	{
 		name: 'Quest 2 (used)',
 		price: '2499',
-		image: '/static/shop/quest_2.png',
+		image: '/static/shop/quest_2.webp',
 		blurb: 'the grandparent of the quest 3',
 		category: 'hardware'
 	},
 	{
 		name: 'Quest 3s (used)',
 		price: '3679',
-		image: '/static/shop/quest_3s.png',
+		image: '/static/shop/quest_3s.webp',
 		blurb: 'the little sister of the quest 3',
 		category: 'hardware'
 	},
 	{
 		name: 'Quest 3 (used)',
 		price: '4299',
-		image: '/static/shop/quest_3.png',
+		image: '/static/shop/quest_3.webp',
 		blurb: 'the favourite child, probably',
 		category: 'hardware'
 	},
 	{
 		name: 'Valve Index',
 		price: '3679',
-		image: '/static/shop/valve_index.jpg',
+		image: '/static/shop/valve_index.webp',
 		blurb: 'the previously premium valve headset',
 		category: 'hardware'
 	},
 	{
 		name: 'Steam Frame',
 		price: '6700',
-		image: '/static/shop/steam_frame.jpg',
+		image: '/static/shop/steam_frame.webp',
 		blurb: 'the new premium valve headset',
 		category: 'hardware'
 	},
@@ -307,14 +307,14 @@ export const items: ShopItem[] = [
 	{
 		name: 'VRChat+ (1 month)',
 		price: '120',
-		image: '/static/shop/vrc_plus.png',
+		image: '/static/shop/vrc_plus.webp',
 		blurb: 'alright, go back to cuddling your friends',
 		category: 'software'
 	},
 	{
 		name: 'VRChat+ (1 year)',
 		price: '1200',
-		image: '/static/shop/vrc_plus.png',
+		image: '/static/shop/vrc_plus.webp',
 		blurb: 'alright, go back to cuddling your friends for longer',
 		category: 'software'
 	},
@@ -323,56 +323,56 @@ export const items: ShopItem[] = [
 	{
 		name: 'Example Indie Game',
 		price: '175',
-		image: '/static/shop/steam_indie.jpg',
+		image: '/static/shop/steam_indie.webp',
 		blurb: 'support those vr indie devs!',
 		category: 'games'
 	},
 	{
 		name: 'Phasmophobia',
 		price: '250',
-		image: '/static/shop/steam_indie.jpg',
+		image: '/static/shop/steam_indie.webp',
 		blurb: 'fall on the floor in fear with your friends',
 		category: 'games'
 	},
 	{
 		name: 'Beat Saber',
 		price: '300',
-		image: '/static/shop/steam_indie.jpg',
+		image: '/static/shop/steam_indie.webp',
 		blurb: 'make this your workout, end up detaching your arms',
 		category: 'games'
 	},
 	{
 		name: 'Walkabout Mini Golf',
 		price: '300',
-		image: '/static/shop/steam_indie.jpg',
+		image: '/static/shop/steam_indie.webp',
 		blurb: 'chill multiplayer mini golf',
 		category: 'games'
 	},
 	{
 		name: 'Job Simulator',
 		price: '300',
-		image: '/static/shop/steam_indie.jpg',
+		image: '/static/shop/steam_indie.webp',
 		blurb: 'chaotic office VR fun',
 		category: 'games'
 	},
 	{
 		name: 'Blade & Sorcery',
 		price: '400',
-		image: '/static/shop/steam_indie.jpg',
+		image: '/static/shop/steam_indie.webp',
 		blurb: 'sandbox melee combat in VR',
 		category: 'games'
 	},
 	{
 		name: 'Boneworks',
 		price: '450',
-		image: '/static/shop/steam_indie.jpg',
+		image: '/static/shop/steam_indie.webp',
 		blurb: 'physics-heavy VR action',
 		category: 'games'
 	},
 	{
 		name: 'Half-Life: Alyx',
 		price: '600',
-		image: '/static/shop/steam_indie.jpg',
+		image: '/static/shop/steam_indie.webp',
 		blurb: 'come on, its half life in vr, you know you want it',
 		category: 'games'
 	}
