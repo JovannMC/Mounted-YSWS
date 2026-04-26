@@ -179,7 +179,7 @@
 								<div class="h-10 w-10 shrink-0 rounded-full">
 									<img
 										src="/static/pfp.jpg"
-										alt="pfp"
+										alt="Maya"
 										class="h-full w-full rounded-full object-cover"
 									/>
 								</div>

@@ -98,7 +98,14 @@
 				{#each [...project.comments].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()) as comment, i (i)}
 					<div class="rounded-2xl border border-white/20 bg-black/25 p-4">
 						<div class="flex items-center justify-between gap-3 text-sm text-white/65">
-							<span>{comment.username}</span>
+							<div class="flex items-center gap-2">
+								<img
+									src={comment.author.profile_image}
+									alt={comment.author.username}
+									class="inline-block h-6 w-6 rounded-full object-cover"
+								/>
+								<span>{comment.author.username}</span>
+							</div>
 							<span>{new Date(comment.timestamp).toLocaleString()}</span>
 						</div>
 						<p class="mt-2 text-sm leading-relaxed text-white/90">{comment.content}</p>

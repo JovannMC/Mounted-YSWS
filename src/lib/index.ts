@@ -6,7 +6,7 @@ export interface User {
 }
 
 export interface Comment {
-	username: string;
+	author: User;
 	content: string;
 	timestamp: string;
 }
@@ -29,7 +29,6 @@ export interface Project {
 	comments?: Comment[];
 }
 
-// TODO: implement profile_image to comments lol
 export const users: User[] = [
 	{
 		username: 'Maya',
@@ -55,22 +54,22 @@ const randomEnd = new Date();
 
 export const comments: Comment[] = [
 	{
-		username: 'Maya',
+		author: users[0],
 		content: 'This is a comment from Maya.',
 		timestamp: getRandomTimestamp(randomStart, randomEnd)
 	},
 	{
-		username: 'Heidi',
+		author: users[1],
 		content: 'This is a comment from Heidi.',
 		timestamp: getRandomTimestamp(randomStart, randomEnd)
 	},
 	{
-		username: 'Orpheus',
+		author: users[2],
 		content: 'This is a comment from Orpheus.',
 		timestamp: getRandomTimestamp(randomStart, randomEnd)
 	},
 	{
-		username: 'Maya',
+		author: users[0],
 		content: 'This is another comment from Maya.',
 		timestamp: getRandomTimestamp(randomStart, randomEnd)
 	}
