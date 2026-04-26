@@ -131,7 +131,7 @@
 
 <div class="flex w-full flex-col gap-6 pb-6">
 	<div class="overflow-hidden rounded-3xl border border-white/20 bg-black/25">
-		<div class="flex flex-col gap-4 p-5 md:p-6">
+		<div class="flex flex-col gap-4 p-6">
 			<div class="flex flex-col gap-1">
 				<h2 class="text-xl font-semibold text-white">Commit timeline</h2>
 				<p class="text-sm text-white/65">

@@ -8,7 +8,6 @@
 	let { children }: Props = $props();
 </script>
 
-<!-- see if bg-black/25 stays with a darker bg behind the window -->
-<aside class="h-full w-70 shrink-0 border-r border-white/25 bg-black/25 p-5">
+<aside class="h-full w-[min(82vw,320px)] shrink-0 border-r border-white/25 bg-black/70 p-5 sm:w-70 sm:bg-black/25">
 	{@render children()}
 </aside>

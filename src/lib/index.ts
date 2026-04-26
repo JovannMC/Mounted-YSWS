@@ -29,10 +29,11 @@ export interface Project {
 	comments?: Comment[];
 }
 
+// TODO: implement profile_image to comments lol
 export const users: User[] = [
 	{
 		username: 'Maya',
-		profile_image: 'https://placehold.co/50'
+		profile_image: '/static/pfp.jpg'
 	},
 	{
 		username: 'Heidi',
@@ -72,7 +73,7 @@ export const comments: Comment[] = [
 		username: 'Maya',
 		content: 'This is another comment from Maya.',
 		timestamp: getRandomTimestamp(randomStart, randomEnd)
-	},
+	}
 ];
 
 export const projects: Project[] = [
