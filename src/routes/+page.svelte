@@ -18,9 +18,15 @@
 			<p>
 				"Build VR projects; start or upgrade your VR experience!"<br />
 				<br />
-				This is my submission for the Hack Club Gap Year 2026 application. Mounted is a YSWS program where teenagers,
-				new to VR or VR enthusiasts, build anything related to VR no matter the kind of project - with or without
-				a VR headset already.<br />
+				This is my submission for the Hack Club
+				<a
+					href="https://manifesto.hackclub.com/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="underline transition-colors hover:text-white/65">Gap Year</a
+				>
+				2026 application. Mounted is a YSWS program where teenagers, new to VR or VR enthusiasts, build anything related
+				to VR no matter the kind of project - with or without a VR headset already.<br />
 				<br />
 				This website is a proof of concept / demo of what the actual YSWS could look like and obviously includes lots
 				of placeholders and hardcoded content, but it should give a good idea of what it might contain!
