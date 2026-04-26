@@ -147,21 +147,22 @@
 	/>
 </div>
 
-<div class="relative z-10 flex min-h-screen w-full items-start justify-center p-6 pt-8 lg:items-center lg:p-10">
+<div class="relative z-10 flex min-h-screen w-full items-center justify-center p-6 lg:p-10">
 	<Container>
 		<div class="relative flex h-full w-full">
-			{#if isDrawerOpen}
-				<!-- close on clicking outside sidebar area -->
-				<button
-					class="absolute inset-0 z-30 bg-black/45 lg:hidden"
-					onclick={closeDrawer}
-					aria-label="Close navigation drawer"
-				></button>
-			{/if}
+			<!-- close on clicking outside sidebar area (and dim) -->
+			<button
+				class={[
+					'absolute inset-0 z-30 bg-black/45 transition-opacity lg:hidden',
+					isDrawerOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+				]}
+				onclick={closeDrawer}
+				aria-label="Close navigation drawer"
+			></button>
 
 			<div
 				class={[
-					'absolute inset-y-0 left-0 z-40 transition-transform duration-250 ease-out lg:relative lg:z-auto lg:translate-x-0',
+					'absolute inset-y-0 left-0 z-40 transition-transform ease-out lg:relative lg:z-auto lg:translate-x-0',
 					isDrawerOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
 				]}
 			>
