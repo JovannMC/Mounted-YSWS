@@ -26,7 +26,14 @@
 					class="underline transition-colors hover:text-white/65">Gap Year</a
 				>
 				2026 application. Mounted is a YSWS program where teenagers, new to VR or VR enthusiasts, build anything related
-				to VR no matter the kind of project - with or without a VR headset already.<br />
+				to VR no matter the kind of project - with or without a VR headset already. <b>Read my
+				<a
+					href="https://docs.google.com/document/d/1n6WujJ7biXMl96pAEWMd7GNK2ZF_eDIAOCPiFbFdzT8/edit?usp=sharing"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="underline transition-colors hover:text-white/65">one-pager</a
+				>
+				submitted along this website for more details of how this works!</b><br />
 				<br />
 				This website is a proof of concept / demo of what the actual YSWS could look like and obviously includes lots
 				of placeholders and hardcoded content, but it should give a good idea of what it might contain!
