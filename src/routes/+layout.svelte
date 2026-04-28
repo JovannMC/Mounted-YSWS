@@ -188,35 +188,44 @@
 						</div>
 
 						<!-- sidebar items -->
-						{#each sections as section, index (`section-${index}`)}
-							<div class="mb-7">
-								{#if section.title}
-									<div class="mb-3 flex items-center justify-between">
-										<h2 class="text-xl font-semibold">{section.title}</h2>
-										<ChevronDown class="h-4 w-4 text-white/90" />
-									</div>
-								{/if}
-
-								<div class="space-y-1 overflow-y-auto pr-1">
-									{#each section.items as item, itemIndex (`item-${itemIndex}`)}
-										<a
-											href={item.link}
-											class={[
-												'flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-sm transition',
-												item.active ? 'bg-white/18' : ' hover:bg-white/15'
-											]}
-											onclick={closeDrawer}
-										>
-											<div class="flex items-center gap-3 text-base">
-												<span class="h-4 w-4 rounded-sm border border-blue-400"></span>
-												<span>{item.label}</span>
+						<OverlayScrollbarsComponent
+							options={{
+								scrollbars: {
+									autoHide: 'move',
+									autoHideDelay: 1500
+								}
+							}}
+							defer
+						>
+							<div class="flex-1 overflow-y-auto pr-1 pb-28">
+								{#each sections as section, index (`section-${index}`)}
+									<div class="mb-7">
+										{#if section.title}
+											<div class="mb-3 flex items-center justify-between">
+												<h2 class="text-xl font-semibold">{section.title}</h2>
+												<ChevronDown class="h-4 w-4 text-white/90" />
 											</div>
-											<span class="text-sm text-white/65">{item.side}</span>
-										</a>
-									{/each}
-								</div>
+										{/if}
+
+										<div class="space-y-1 pr-1">
+											{#each section.items as item, itemIndex (`item-${itemIndex}`)}
+												<a
+													href={item.link}
+													class={`flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-sm transition ${item.active ? 'bg-white/18' : 'hover:bg-white/15'}`}
+													onclick={closeDrawer}
+												>
+													<div class="flex items-center gap-3 text-base">
+														<span class="h-4 w-4 rounded-sm border border-blue-400"></span>
+														<span>{item.label}</span>
+													</div>
+													<span class="text-sm text-white/65">{item.side}</span>
+												</a>
+											{/each}
+										</div>
+									</div>
+								{/each}
 							</div>
-						{/each}
+						</OverlayScrollbarsComponent>
 
 						<!-- bottom details -->
 						<div class="mt-auto flex flex-col items-center gap-2 text-xs text-white/50">
